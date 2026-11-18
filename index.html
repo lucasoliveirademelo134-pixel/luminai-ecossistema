@@ -2,253 +2,627 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#151219">
-  <meta name="description" content="Luminaí — cuidado, identidade e experiência.">
-  <title>Luminaí | Sua identidade, seu cuidado</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Luminaí — cuidado, identidade e experiências para todos os momentos.">
+<title>Luminaí | Loja Oficial</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+:root {
+  --purple: #6526a8;
+  --dark: #211b27;
+  --gold: #c6a45e;
+  --light: #f7f5fa;
+  --text: #24202a;
+  --muted: #77717e;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      background: #151219;
-      color: #f5f0e9;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-    }
+html { scroll-behavior: smooth; }
 
-    header {
-      padding: 22px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #332c36;
-    }
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background: white;
+}
 
-    .logo {
-      color: #d5b36a;
-      font-family: Georgia, serif;
-      font-size: 27px;
-      letter-spacing: 4px;
-    }
+a { color: inherit; text-decoration: none; }
 
-    nav a {
-      color: #ddd;
-      text-decoration: none;
-      margin-left: 20px;
-      font-size: 14px;
-    }
+.topbar {
+  background: var(--purple);
+  color: white;
+  text-align: center;
+  padding: 9px;
+  font-size: 12px;
+  letter-spacing: .3px;
+}
 
-    .hero {
-      min-height: 490px;
-      padding: 100px 8%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background:
-        radial-gradient(circle at 80% 40%, #492d55 0%, transparent 35%),
-        linear-gradient(120deg, #17131b, #211a27);
-    }
+header {
+  padding: 19px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border-bottom: 1px solid #eeeaf2;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255,255,255,.97);
+}
 
-    .tag {
-      color: #d5b36a;
-      letter-spacing: 4px;
-      font-size: 12px;
-      margin-bottom: 20px;
-    }
+.logo {
+  font-family: Georgia, serif;
+  font-size: 29px;
+  letter-spacing: 3px;
+  color: var(--dark);
+  white-space: nowrap;
+}
 
-    h1 {
-      font-family: Georgia, serif;
-      font-size: clamp(38px, 7vw, 68px);
-      font-weight: normal;
-      max-width: 650px;
-      line-height: 1.15;
-    }
+.logo span { color: var(--purple); }
 
-    .hero p {
-      color: #c6bdca;
-      max-width: 480px;
-      margin: 24px 0 30px;
-    }
+.search {
+  flex: 1;
+  max-width: 420px;
+  display: flex;
+  border: 1px solid #e5e0e9;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #faf9fb;
+}
 
-    .button {
-      display: inline-block;
-      width: fit-content;
-      padding: 13px 25px;
-      border: 1px solid #d5b36a;
-      color: #d5b36a;
-      text-decoration: none;
-      letter-spacing: 1px;
-      font-size: 13px;
-    }
+.search input {
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: transparent;
+  padding: 12px 17px;
+  font-size: 13px;
+}
 
-    section {
-      padding: 75px 8%;
-    }
+.search button {
+  border: 0;
+  background: var(--purple);
+  color: white;
+  padding: 0 17px;
+  cursor: pointer;
+}
 
-    .section-title {
-      font-family: Georgia, serif;
-      font-size: 34px;
-      font-weight: normal;
-      margin-bottom: 12px;
-    }
+.header-actions {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  font-size: 14px;
+}
 
-    .subtitle {
-      color: #aaa0ad;
-      margin-bottom: 35px;
-    }
+.cart {
+  border: 0;
+  background: var(--light);
+  padding: 10px 13px;
+  border-radius: 25px;
+  cursor: pointer;
+  color: var(--purple);
+  font-weight: bold;
+}
 
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
-    }
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 34px;
+  padding: 15px;
+  border-bottom: 1px solid #eeeaf2;
+  font-size: 13px;
+  font-weight: bold;
+}
 
-    .product {
-      padding: 35px 25px;
-      min-height: 220px;
-      border: 1px solid #443747;
-      background: linear-gradient(145deg, #211b27, #19151d);
-    }
+nav a:hover { color: var(--purple); }
 
-    .product h3 {
-      color: #d5b36a;
-      font-family: Georgia, serif;
-      font-size: 24px;
-      font-weight: normal;
-      margin-bottom: 14px;
-    }
+.hero {
+  margin: 25px auto;
+  width: 92%;
+  min-height: 365px;
+  border-radius: 18px;
+  padding: 55px 7%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 85% 35%, #d9c1ef 0%, transparent 35%),
+    linear-gradient(110deg,#faf7fc,#eee4f6);
+}
 
-    .product p {
-      color: #bdb4c0;
-      font-size: 14px;
-      margin-bottom: 22px;
-    }
+.hero-content { max-width: 500px; }
 
-    .product a {
-      color: #d5b36a;
-      text-decoration: none;
-      font-size: 13px;
-    }
+.eyebrow {
+  color: var(--purple);
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  margin-bottom: 18px;
+}
 
-    .about {
-      background: #1d1821;
-      text-align: center;
-    }
+.hero h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(36px,5vw,58px);
+  font-weight: normal;
+  line-height: 1.12;
+}
 
-    .about p {
-      color: #bdb4c0;
-      max-width: 650px;
-      margin: 20px auto 0;
-    }
+.hero p {
+  margin: 19px 0 26px;
+  color: #635c69;
+  line-height: 1.7;
+  max-width: 400px;
+}
 
-    footer {
-      padding: 35px 8%;
-      text-align: center;
-      color: #8e8491;
-      font-size: 12px;
-      border-top: 1px solid #332c36;
-    }
+.button {
+  display: inline-block;
+  padding: 14px 24px;
+  border-radius: 30px;
+  background: var(--purple);
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+}
 
-    footer strong {
-      color: #d5b36a;
-      letter-spacing: 3px;
-    }
+.hero-symbol {
+  margin-left: auto;
+  font-family: Georgia, serif;
+  font-size: clamp(90px,17vw,190px);
+  color: rgba(101,38,168,.17);
+  padding: 20px;
+}
 
-    @media (max-width: 600px) {
-      header {
-        padding: 18px 6%;
-      }
+section { padding: 48px 6%; }
 
-      nav a {
-        margin-left: 10px;
-        font-size: 12px;
-      }
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 15px;
+  margin-bottom: 24px;
+}
 
-      .hero {
-        padding: 80px 7%;
-      }
+.section-heading h2 {
+  font-family: Georgia, serif;
+  font-size: 30px;
+  font-weight: normal;
+}
 
-      section {
-        padding: 60px 7%;
-      }
-    }
-  </style>
+.section-heading p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 7px;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 16px;
+}
+
+.category {
+  background: var(--light);
+  border: 1px solid #eee8f3;
+  border-radius: 14px;
+  padding: 22px 17px;
+  transition: .2s;
+}
+
+.category:hover {
+  transform: translateY(-4px);
+  border-color: #c9a9e4;
+}
+
+.category-icon {
+  height: 95px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-size: 42px;
+  margin-bottom: 17px;
+  background: linear-gradient(135deg,#eee4f8,#fff);
+}
+
+.category h3 { font-size: 17px; margin-bottom: 7px; }
+
+.category p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.category a {
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--purple);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 17px;
+}
+
+.product {
+  border: 1px solid #eeeaf1;
+  border-radius: 13px;
+  overflow: hidden;
+  background: white;
+}
+
+.product-visual {
+  height: 165px;
+  display: grid;
+  place-items: center;
+  background: #f7f4fa;
+}
+
+.jar {
+  width: 92px;
+  height: 66px;
+  border-radius: 12px 12px 20px 20px;
+  background: linear-gradient(145deg,#fff,#dcd7e1);
+  box-shadow: 0 12px 18px #24172a20;
+  position: relative;
+  border-top: 14px solid #fff;
+}
+
+.jar::after {
+  content: "LUMINÁI";
+  position: absolute;
+  top: 21px;
+  width: 100%;
+  text-align: center;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #665a70;
+}
+
+.jar.premium {
+  background: linear-gradient(145deg,#302538,#09070c);
+  border-top-color: #7136a6;
+}
+
+.jar.premium::after { color: #e5c77d; }
+
+.jar.young {
+  background: linear-gradient(145deg,#cba9f0,#8752bd);
+  border-top-color: #a77bd1;
+}
+
+.jar.young::after { color: white; }
+
+.jar.lipiloto {
+  background: linear-gradient(145deg,#25212a,#08070a);
+  border-top-color: #29232f;
+}
+
+.jar.lipiloto::after { color: #d8c4f0; }
+
+.product-info { padding: 16px; }
+
+.product-info h3 { font-size: 14px; margin-bottom: 6px; }
+
+.product-info p {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 13px;
+}
+
+.product-info button {
+  width: 100%;
+  padding: 10px;
+  background: white;
+  color: var(--purple);
+  border: 1px solid var(--purple);
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.product-info button:hover {
+  background: var(--purple);
+  color: white;
+}
+
+.club {
+  margin: 25px 6%;
+  border-radius: 17px;
+  padding: 35px 6%;
+  color: white;
+  background: linear-gradient(110deg,#211b27,#49266b);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.club h2 {
+  font-family: Georgia,serif;
+  font-size: 30px;
+  font-weight: normal;
+}
+
+.club p {
+  color: #e0d7e8;
+  font-size: 13px;
+  margin-top: 9px;
+  line-height: 1.6;
+}
+
+.club a {
+  background: white;
+  color: var(--purple);
+  border-radius: 25px;
+  padding: 13px 20px;
+  font-size: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  text-align: center;
+  gap: 15px;
+  padding-top: 25px;
+  padding-bottom: 35px;
+}
+
+.benefits strong { color: var(--purple); font-size: 14px; }
+
+.benefits p {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+footer {
+  background: #211b27;
+  color: white;
+  padding: 38px 6%;
+  text-align: center;
+}
+
+footer .logo { color: white; }
+
+footer p {
+  color: #c7bdce;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+footer a {
+  display: inline-block;
+  margin-top: 17px;
+  color: #d5b36a;
+  font-size: 12px;
+}
+
+@media(max-width:700px) {
+  header { flex-wrap: wrap; padding: 15px 5%; }
+  .logo { font-size: 24px; }
+  .search { order: 3; flex-basis: 100%; max-width: none; }
+  .header-actions { gap: 10px; }
+  nav { gap: 17px; overflow-x: auto; justify-content: flex-start; white-space: nowrap; }
+  .hero { min-height: 310px; padding: 38px 7%; }
+  .hero-symbol { font-size: 75px; padding: 0; }
+  .categories { grid-template-columns: repeat(2,1fr); gap: 11px; }
+  .category { padding: 13px; }
+  .category-icon { height: 75px; }
+  .products { grid-template-columns: repeat(2,1fr); gap: 11px; }
+  .product-visual { height: 125px; }
+  section { padding: 35px 5%; }
+  .section-heading h2 { font-size: 25px; }
+  .club { margin: 15px 5%; padding: 25px 6%; flex-direction: column; align-items: flex-start; }
+  .benefits { grid-template-columns: 1fr; }
+}
+
+@media(max-width:390px) {
+  .hero-symbol { display: none; }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">LUMINAI</div>
-    <nav>
-      <a href="#colecoes">Coleções</a>
-      <a href="#sobre">Sobre</a>
-    </nav>
-  </header>
+<div class="topbar">✦ Cuidado, identidade e experiência Luminaí</div>
 
-  <main>
-    <section class="hero">
-      <span class="tag">CUIDADO • IDENTIDADE • EXPERIÊNCIA</span>
-      <h1>Sua identidade merece atenção aos detalhes.</h1>
-      <p>
-        Mais do que cuidado pessoal, uma experiência que acompanha
-        seu estilo e valoriza quem você é.
-      </p>
-      <a class="button" href="#colecoes">CONHEÇA A LUMINÁI</a>
-    </section>
+<header>
+  <a class="logo" href="#">LUMINÁ<span>Í</span></a>
 
-    <section id="colecoes">
-      <h2 class="section-title">Nossas coleções</h2>
-      <p class="subtitle">
-        Diferentes experiências. A mesma essência.
-      </p>
+  <form class="search" id="searchForm">
+    <input id="searchInput" type="search" placeholder="Buscar produtos...">
+    <button type="submit">⌕</button>
+  </form>
 
-      <div class="products">
-        <article class="product">
-          <h3>Tradicional</h3>
-          <p>
-            Cuidado essencial para fazer parte da sua rotina.
-            Simplicidade, praticidade e personalidade.
-          </p>
-          <a href="#contato">CONHECER COLEÇÃO →</a>
-        </article>
+  <div class="header-actions">
+    <a href="#club">Club</a>
+    <button class="cart" onclick="showCart()">Sacola (<span id="cartCount">0</span>)</button>
+  </div>
+</header>
 
-        <article class="product">
-          <h3>Premium</h3>
-          <p>
-            Uma experiência exclusiva, com atenção especial
-            ao design, aos detalhes e à apresentação.
-          </p>
-          <a href="#contato">CONHECER COLEÇÃO →</a>
-        </article>
+<nav>
+  <a href="#">Início</a>
+  <a href="#categorias">Categorias</a>
+  <a href="#produtos">Produtos</a>
+  <a href="#club">Luminaí Club</a>
+  <a href="#sobre">Sobre</a>
+</nav>
+
+<main>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">DESCUBRA A LUMINÁI</div>
+    <h1>Seu cuidado. Seu estilo. Sua identidade.</h1>
+    <p>Experiências de cuidado para diferentes momentos, estilos e personalidades.</p>
+    <a class="button" href="#categorias">Explorar coleções →</a>
+  </div>
+  <div class="hero-symbol">✦</div>
+</section>
+
+<section id="categorias">
+  <div class="section-heading">
+    <div>
+      <h2>Encontre sua experiência</h2>
+      <p>Uma Luminaí para cada estilo.</p>
+    </div>
+  </div>
+
+  <div class="categories">
+    <article class="category">
+      <div class="category-icon">◉</div>
+      <h3>Tradicional</h3>
+      <p>Cuidado diário e praticidade.</p>
+      <a href="#produtos">Explorar →</a>
+    </article>
+
+    <article class="category">
+      <div class="category-icon">✦</div>
+      <h3>Premium</h3>
+      <p>Exclusividade e atenção aos detalhes.</p>
+      <a href="#produtos">Explorar →</a>
+    </article>
+
+    <article class="category">
+      <div class="category-icon">☀</div>
+      <h3>Lipivete</h3>
+      <p>Uma experiência jovem e descontraída.</p>
+      <a href="#produtos">Explorar →</a>
+    </article>
+
+    <article class="category">
+      <div class="category-icon">◈</div>
+      <h3>Lipiloto</h3>
+      <p>Cuidado para quem vive sobre duas rodas.</p>
+      <a href="#produtos">Explorar →</a>
+    </article>
+  </div>
+</section>
+
+<section id="produtos">
+  <div class="section-heading">
+    <div>
+      <h2>Nossos produtos</h2>
+      <p>Conheça as experiências Luminaí.</p>
+    </div>
+  </div>
+
+  <div class="products" id="productList">
+
+    <article class="product" data-name="Lip Balm Tradicional">
+      <div class="product-visual"><div class="jar"></div></div>
+      <div class="product-info">
+        <h3>Lip Balm Tradicional</h3>
+        <p>7 g · Linha Tradicional</p>
+        <button onclick="addToCart('Lip Balm Tradicional')">Adicionar à sacola</button>
       </div>
-    </section>
+    </article>
 
-    <section class="about" id="sobre">
-      <h2 class="section-title">Além do produto.</h2>
-      <p>
-        A Luminaí nasce com o propósito de unir cuidado,
-        autenticidade e identidade. Uma marca em constante
-        evolução, criada para acompanhar diferentes momentos
-        da sua vida.
-      </p>
-    </section>
-  </main>
+    <article class="product" data-name="Lip Balm Premium">
+      <div class="product-visual"><div class="jar premium"></div></div>
+      <div class="product-info">
+        <h3>Lip Balm Premium</h3>
+        <p>7 g · Linha Premium</p>
+        <button onclick="addToCart('Lip Balm Premium')">Adicionar à sacola</button>
+      </div>
+    </article>
 
-  <footer id="contato">
-    <strong>LUMINÁI</strong>
-    <p>Uma nova experiência de cuidado.</p>
-    <p>© 2026 Luminaí. Todos os direitos reservados.</p>
-  </footer>
+    <article class="product" data-name="Lipivete Balm">
+      <div class="product-visual"><div class="jar young"></div></div>
+      <div class="product-info">
+        <h3>Lipivete Balm</h3>
+        <p>7 g · Linha jovem</p>
+        <button onclick="addToCart('Lipivete Balm')">Adicionar à sacola</button>
+      </div>
+    </article>
+
+    <article class="product" data-name="Lipiloto Balm">
+      <div class="product-visual"><div class="jar lipiloto"></div></div>
+      <div class="product-info">
+        <h3>Lipiloto Balm</h3>
+        <p>7 g · Linha motociclista</p>
+        <button onclick="addToCart('Lipiloto Balm')">Adicionar à sacola</button>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<div class="club" id="club">
+  <div>
+    <h2>✦ Luminaí Club</h2>
+    <p>Uma comunidade de experiências, novidades e benefícios.<br>Em breve, uma nova forma de fazer parte da Luminaí.</p>
+  </div>
+  <a href="#sobre">Conheça o projeto →</a>
+</div>
+
+<section class="benefits">
+  <div>
+    <strong>✦ Nossa identidade</strong>
+    <p>Produtos com personalidade.</p>
+  </div>
+  <div>
+    <strong>◇ Nossa comunidade</strong>
+    <p>Experiências que aproximam.</p>
+  </div>
+  <div>
+    <strong>♡ Nosso propósito</strong>
+    <p>Cuidado em cada detalhe.</p>
+  </div>
+</section>
+
+</main>
+
+<footer id="sobre">
+  <div class="logo">LUMINÁ<span>Í</span></div>
+  <p>Cuidado, identidade e experiência.</p>
+  <a href="mailto:contato@luminai.com.br">Entre em contato</a>
+  <p>© 2026 Luminaí. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+let cart = [];
+
+function addToCart(name) {
+  cart.push(name);
+  document.getElementById("cartCount").textContent = cart.length;
+  alert(name + " foi adicionado à sua sacola!");
+}
+
+function showCart() {
+  if (cart.length === 0) {
+    alert("Sua sacola ainda está vazia.");
+    return;
+  }
+
+  alert("Sua sacola:\n\n" + cart.join("\n") +
+    "\n\nTotal de itens: " + cart.length +
+    "\n\nFinalização de compra estará disponível em uma próxima etapa.");
+}
+
+document.getElementById("searchForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const term = document.getElementById("searchInput").value
+    .toLowerCase().trim();
+
+  const products = document.querySelectorAll(".product");
+
+  products.forEach(function(product) {
+    const name = product.dataset.name.toLowerCase();
+    product.style.display = name.includes(term) ? "" : "none";
+  });
+
+  document.getElementById("produtos").scrollIntoView();
+});
+</script>
 
 </body>
 </html>
